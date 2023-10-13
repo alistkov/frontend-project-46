@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/alistkov/frontend-project-46/issues"
   },
-  "homepage": "https://github.com/alistkov/frontend-project-46#readme"
+  "homepage": "https://github.com/alistkov/frontend-project-46#readme",
+  "dependencies": {
+    "commander": "^11.1.0"
+  }
 }
