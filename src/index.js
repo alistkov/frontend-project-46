@@ -4,8 +4,8 @@ import _ from 'lodash';
 
 const readFile = (filepath) => fs.readFileSync(path.resolve(process.cwd(), filepath), 'utf8');
 
-const getDataAndKeys = (path) => {
-  const data = JSON.parse(readFile(path));
+const getDataAndKeys = (filePath) => {
+  const data = JSON.parse(readFile(filePath));
   const keys = Object.keys(data);
   return [data, keys];
 };
