@@ -16,9 +16,8 @@ const gendiff = (path1, path2) => {
     if (_.has(data1, key) && _.has(data2, key)) {
       if (data1[key] === data2[key]) {
         return `${key}: ${data1[key]}`;
-      } else {
-        return [`-${key}: ${data1[key]}`, `+${key}: ${data2[key]}`];
       }
+      return [`-${key}: ${data1[key]}`, `+${key}: ${data2[key]}`];
     }
 
     if (_.has(data1, key) && !_.has(data2, key)) {
