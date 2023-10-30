@@ -1,14 +1,14 @@
 import gendiff from '../src/index.js';
+import fs from 'node:fs';
 
-test('gendiff', () => {
-  const expected = `{
-  - follow: false
-    host: hexlet.io
-  - proxy: 123.234.53.22
-  - timeout: 50
-  + timeout: 20
-  + verbose: true
-}`;
+describe('test', () => {
+  const expected = fs.readFileSync('__fixtures__/expect.txt', 'utf-8');
 
-  expect(gendiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toEqual(expected);
+  test('json', () => {
+    expect(gendiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toEqual(expected);
+  });
+
+  test('yml', () => {
+    expect(gendiff('__fixtures__/file1.yml', '__fixtures__/file2.yml')).toEqual(expected);
+  });
 });
