@@ -1,11 +1,18 @@
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
+import yaml from 'js-yaml';
 
 const readFile = (filepath) => fs.readFileSync(path.resolve(process.cwd(), filepath), 'utf8');
 
 const getDataAndKeys = (filePath) => {
-  const data = JSON.parse(readFile(filePath));
+  const extension = path.extname(filePath);
+  let data;
+  if (extension === '.json') {
+    data = JSON.parse(readFile(filePath));
+  } else if (extension === '.yml' || extension === '.yaml') {
+    data = yaml.load(readFile(filePath));
+  }
   const keys = Object.keys(data);
   return [data, keys];
 };
