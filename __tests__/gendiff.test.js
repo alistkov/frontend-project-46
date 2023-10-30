@@ -1,5 +1,5 @@
-import gendiff from '../src/index.js';
 import fs from 'node:fs';
+import gendiff from '../src/index.js';
 
 describe('test', () => {
   const expected = fs.readFileSync('__fixtures__/expect.txt', 'utf-8');
